@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <!--bouton test combat-->
+        <button id="start" start</button>
+            <button id="1" onclick="combat(1)">reflechir</button>
+            <button id="2" onclick="combat(2)">coder</button>
+            <button id="3" onclick="combat(3)">manger</button>
+            <button id="4" onclick="combat(4)">dormir</button>
+
+    </div>
+
+    <button onclick="ennemyGenerator()">ennemygen</button>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <script>
+        /*déclaration de variables*/
+        var scoreHeros = 0;
+        var scoreEnnemi = 0;
+        var armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
+        var heros = ["h0", "h1", "h2", "h3", "h4"];
+        var lieux = ["l0", "l1", "l2", "l3"];
+        var win = [1, 2, 3, 2, 4, 1, 2, 3, 2, 4, 1, 2, 3, 2, 4];
+        var fight = [];
+        /*tableau en cache (à vider à la fin du combat*/
+        var armeHero = ["a6", "a5"];
+        var heroPlayer = heros[3];
+        var armeEnnemi = [];
+        var herosEnnemi = [];
+        var nombreClicks = 0;
+
+        var startS = 0;
+        var startM = 0;
+        var stopS = 0;
+        var stopM = 0;
+        var stopMin = 0;
+
+        function start() {
+            var d = new Date();
+            startS = d.getSeconds();
+            startM = d.getMilliseconds();
+            startMin = d.getMinutes();
+            ennemyGenerator();
+        }
+
+        function stop() {
+            var d = new Date();
+            stopS = d.getSeconds();
+            stopM = d.getMilliseconds();
+            stopMin = d.getMinutes();
+            var timeS = stopS - startS;
+            var timeM = stopM - startM;
+            var timeMin = stopMin - startMin;
+            var time = (timeMin * 60000) + (timeS * 1000) + timeM;
+            return time;
+        }
+
+        function combat(a) {
+            if (a == win[nombreClicks]) {
+                fight.push(a);
+                nombreClicks++;
+                if (nombreClicks == 15) {
+                    /*stop() affiche le temps */
+                    stop();
+                    scoreHeros = Math.floor((((armeHero[1].charAt(1) + 1) + (armeHero[0].charAt(1) + 1) * 10000) / stop()));
+                    console.log(stop());
+                    /*si gagné ou perdu*/
+                    if (scoreHeros >= scoreEnnemi) {
+                        winner();
+                    } else {
+                        loser();
+                    }
+                }
+            } else {
+                /* fight = fight.splice(-0, 1);*/
+                var mauvaisChoix = document.getElementById(a).innerHTML;
+                var bonChoix = document.getElementById(win[nombreClicks]).innerHTML;
+                alert(mauvaisChoix + ' est faux, ' + bonChoix + ' est juste');
+            }
+        }
+
+
+        function ennemyGenerator() {
+            /*random du héros*/
+            var herosIndex = Math.floor((Math.random() * heros.length));
+            herosEnnemi.push(heros[herosIndex]);
+            heros.splice(herosIndex, 1);
+
+            /*appel de la fonction random des armes*/
+            randomArmes();
+            randomArmes();
+            scoreEnnemi = Math.floor(((armeEnnemi[0].charAt(1) + 1 + armeEnnemi[1].charAt(1) + 1) * 10000) / 7500);
+            /*réinitialisation de la var armes*/
+            armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
+            console.log(scoreEnnemi);
+        }
+
+
+        /*function random des armes ennemi*/
+        function randomArmes() {
+            var armeIndex = Math.floor((Math.random() * armes.length));
+            armeEnnemi.push(armes[armeIndex]);
+            armes.splice(armeIndex, 1);
+        }
+
+        /* fonction victoir/defait*/
+        function winner() {
+            console.log("gagneee");
+        }
+
+        function loser() {
+            console.log("loser");
+        }
+    </script>
+
+
+</body>
+
+</html>
