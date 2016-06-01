@@ -1,11 +1,13 @@
 <!doctype html>
-<html>
+<html onload="init()">
 
 <head>
     <meta charset="UTF-8">
     <title>Untitled Document</title>
     <style type="text/css">
-
+        #bouttonStart {
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -19,9 +21,25 @@
             <button id="4" onclick="combat(4)">dormir</button>
 
     </div>
+    <div>
+        <button onclick="selectH(0)">H1</button>
+        <button onclick="selectH(1)">H2</button>
+        <button onclick="selectH(2)">H3</button>
+        <button onclick="selectH(3)">H4</button>
+        <button onclick="selectH(4)">H5</button>
+    </div>
 
+    <div>
+        <button onclick="selectA(0)">A1</button>
+        <button onclick="selectA(1)">A2</button>
+        <button onclick="selectA(2)">A3</button>
+        <button onclick="selectA(3)">A4</button>
+        <button onclick="selectA(4)">A5</button>
+        <button onclick="selectA(5)">A6</button>
+        <button onclick="selectA(6)">A7</button>
+    </div>
     <button onclick="ennemyGenerator()">ennemygen</button>
-    <button onclick="start()">start</button>
+    <button id="bouttonStart" onclick="start()">start</button>
     <button onclick="stop()">stop</button>
     <script>
         /*déclaration de variables*/
@@ -31,10 +49,10 @@
         var heros = ["h0", "h1", "h2", "h3", "h4"];
         var lieux = ["l0", "l1", "l2", "l3"];
         var win = [1, 2, 3, 2, 4, 1, 2, 3, 2, 4, 1, 2, 3, 2, 4];
+        var heroPlayer = [];
         var fight = [];
         /*tableau en cache (à vider à la fin du combat*/
-        var armeHero = ["a6", "a5"];
-        var heroPlayer = heros[3];
+        var armeHero = [];
         var armeEnnemi = [];
         var herosEnnemi = [];
         var nombreClicks = 0;
@@ -44,6 +62,30 @@
         var stopS = 0;
         var stopM = 0;
         var stopMin = 0;
+
+
+        function selectH(a) {
+            heroPlayer.push(heros[a]);
+            heros.splice(a, 1);
+            finSelect();
+        }
+
+        function selectA(a) {
+            armeHero.push(armes[a]);
+            if (armeHero[0] == armeHero[1]) {
+                armeHero.splice(-0, 1);
+            } =
+            finSelect();
+        }
+
+        function finSelect() {
+            if (armeHero.length == 2 && heroPlayer.length == 1) {
+                console.log('caca');
+                document.getElementById('bouttonStart').style.opacity = 1;
+            }
+            console.log(heroPlayer);
+            console.log(armeHero);
+        }
 
         function start() {
             var d = new Date();
@@ -76,7 +118,7 @@
                     console.log(stop());
                     /*si gagné ou perdu*/
                     if (scoreHeros >= scoreEnnemi) {
-                        winner();
+                        winner(); =
                     } else {
                         loser();
                     }
