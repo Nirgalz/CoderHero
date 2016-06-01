@@ -14,11 +14,10 @@
 <body>
     <div>
         <!--bouton test combat-->
-        <button id="start" start</button>
-            <button id="1" onclick="combat(1)">reflechir</button>
-            <button id="2" onclick="combat(2)">coder</button>
-            <button id="3" onclick="combat(3)">manger</button>
-            <button id="4" onclick="combat(4)">dormir</button>
+        <button class="action" id="1" onclick="combat(1)">reflechir</button>
+        <button class="action" id="2" onclick="combat(2)">coder</button>
+        <button class="action" id="3" onclick="combat(3)">manger</button>
+        <button class="action" id="4" onclick="combat(4)">dormir</button>
 
     </div>
     <div>
@@ -40,7 +39,8 @@
     </div>
     <button onclick="ennemyGenerator()">ennemygen</button>
     <button id="bouttonStart" onclick="start()">start</button>
-    <button onclick="stop()">stop</button>
+    <p id="message"></p>
+    
     <script>
         /*déclaration de variables*/
         var scoreHeros = 0;
@@ -56,7 +56,7 @@
         var armeEnnemi = [];
         var herosEnnemi = [];
         var nombreClicks = 0;
-
+        /*vars timer*/
         var startS = 0;
         var startM = 0;
         var stopS = 0;
@@ -74,7 +74,7 @@
             armeHero.push(armes[a]);
             if (armeHero[0] == armeHero[1]) {
                 armeHero.splice(-0, 1);
-            } =
+            }
             finSelect();
         }
 
@@ -83,8 +83,6 @@
                 console.log('caca');
                 document.getElementById('bouttonStart').style.opacity = 1;
             }
-            console.log(heroPlayer);
-            console.log(armeHero);
         }
 
         function start() {
@@ -108,6 +106,7 @@
         }
 
         function combat(a) {
+            document.getElementById(a).style.backgroundColor="gray";
             if (a == win[nombreClicks]) {
                 fight.push(a);
                 nombreClicks++;
@@ -118,16 +117,14 @@
                     console.log(stop());
                     /*si gagné ou perdu*/
                     if (scoreHeros >= scoreEnnemi) {
-                        winner(); =
+                        winner();
                     } else {
                         loser();
                     }
                 }
             } else {
-                /* fight = fight.splice(-0, 1);*/
-                var mauvaisChoix = document.getElementById(a).innerHTML;
-                var bonChoix = document.getElementById(win[nombreClicks]).innerHTML;
-                alert(mauvaisChoix + ' est faux, ' + bonChoix + ' est juste');
+                document.getElementById(win[nombreClicks]).style.backgroundColor="green";
+
             }
         }
 
@@ -144,7 +141,7 @@
             scoreEnnemi = Math.floor(((armeEnnemi[0].charAt(1) + 1 + armeEnnemi[1].charAt(1) + 1) * 10000) / 7500);
             /*réinitialisation de la var armes*/
             armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
-            console.log(scoreEnnemi);
+
         }
 
 
@@ -155,13 +152,39 @@
             armes.splice(armeIndex, 1);
         }
 
+
         /* fonction victoir/defait*/
         function winner() {
-            console.log("gagneee");
+            document.getElementById('message').innerHTML = 'Victoir avec ' + scoreHeros + ' contre ' + scoreEnnemi + ' Bien ouéj gros !';
+            scoreHeros = 0;
+            scoreEnnemi = 0;
+            fight = [];
+            armeEnnemi = [];
+            herosEnnemi = [];
+            nombreClicks = 0;
+            startS = 0;
+            startM = 0;
+            stopS = 0;
+            stopM = 0;
+            stopMin = 0;
         }
 
         function loser() {
-            console.log("loser");
+            document.getElementById('message').innerHTML = 'Défaite avec ' + scoreHeros + ' contre ' + scoreEnnemi + ' grosse merde!';
+            heros = ["h0", "h1", "h2", "h3", "h4"];
+            lieux = ["l0", "l1", "l2", "l3"];
+            scoreHeros = 0;
+            scoreEnnemi = 0;
+            fight = [];
+            armeEnnemi = [];
+            herosEnnemi = [];
+            nombreClicks = 0;
+            startS = 0;
+            startM = 0;
+            stopS = 0;
+            stopM = 0;
+            stopMin = 0;
+            armeHero = [];
         }
     </script>
 
