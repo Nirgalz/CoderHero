@@ -9,6 +9,25 @@
         #bouttonStart {
             opacity: 0;
         }
+        #chargement{
+            width: 1000px;
+            height: 1000px;
+            background-color: aqua;
+        }
+        #victoir{
+             width: 1000px;
+            height: 1000px;
+             background-color: aqua;
+        }
+        #bcharge{
+            
+        }
+        #combat{
+            
+        }
+        #reco{
+            
+        }
     </style>
 </head>
 
@@ -63,21 +82,30 @@
       </div>
     </div>
     <div class="affichHero">
-      <img src="saitama_perso.png">
+      <img src="troll.png">
     </div>
     <div class="affichReste">
       <div class="affichArme0">
-        <img class="gauche" src="triforce-icone.png">
+        <img class="gauche" src="xxx.png">
       </div>
       <div class="affichIcone">
         <p class="icone_plus">+</p>
       </div>
       <div class="affichArme1">
-        <img class="droite" src="triforce-icone.png">
+        <img class="droite" src="xxx.png">
       </div>
       <div class="affichResult"> </div>
-      <button id="bouttonStart" onclick="start()">start</button>
+     <button id="bout"><a href="#ecran2">start</button>
     </div>
+  </div>
+  <br>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br>
+  <div id="chargement">
+      <button id="bcharge"><a href="#ecran2">GO!!</a></button>
   </div>
   <br>
   <br>
@@ -117,23 +145,32 @@
       <img class="cover" src="saitama_perso.png">
     </div>
     <div class="boutons_bas">
-      <div class="bouton_0" >
+     <button id="bouttonStart" onclick="start()">start</button>
+      <div class="bouton_0" id="1">
         <input class="bouton-reflechir-rond" onclick="combat(1)">
       </div>
-      <div class="bouton_1" >
+      <div class="bouton_1" id="2">
         <input class="bouton-coder-rond" onclick="combat(2)">
       </div>
-      <div class="bouton_2" >
+      <div class="bouton_2" id="3">
         <input class="bouton-manger-rond" onclick="combat(3)">
       </div>
-      <div class="bouton_3" >
+      <div class="bouton_3" id="4">
         <input class="bouton-dormir-rond" onclick="combat(4)">
       </div>
     </div>
     <div id="message"></div>
   </div>
-    
-    
+    <br>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br>
+    <div id="victoir">
+      <button id="combat"><a href="#ecran2">Combat suivant</a></button>
+      <button id="reco"><a href="#ecran1">Recommancer</a></button>
+  </div>
     
     <script src="script.js">
        
