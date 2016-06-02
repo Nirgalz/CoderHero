@@ -23,8 +23,10 @@
         function selectH(a) {
             heroPlayer.push(heros[a]);
             heros.splice(a, 1);
-            document.getElementsByClassName('affichHero')[0].innerHTML = '<img src="heros/h'+a+'.png"/>';
+            document.getElementsByClassName('affichHero')[0].innerHTML = '<img src="herofull/h'+a+'.png"/>';
             document.getElementsByClassName('img_heros_gauche')[0].src = 'heros/h'+a+'.png';
+             document.getElementsByClassName('affich_heros_gauche')[0].innerHTML = '<img class="cover"  src="herofull/h'+a+'.png"/>';
+            
             finSelect();
         }
 
@@ -45,6 +47,9 @@
         function finSelect() {
             if (armeHero.length == 2 && heroPlayer.length == 1) {
                 document.getElementById('bouttonStart').style.opacity = 1;
+                var puissance = ((parseInt(armeHero[1].charAt(1)) + 1) + (parseInt(armeHero[0].charAt(1)) + 1));
+                document.getElementsByClassName('affichResult')[0].innerHTML = 'puisance des armes : '+puissance+'';
+                document.getElementsByClassName('armes_gauche')[0].innerHTML += 'puisance des armes : '+puissance+'';
             }
         }
 
@@ -102,11 +107,17 @@
             randomArmes();
             randomArmes();
             scoreEnnemi = Math.floor(((armeEnnemi[0].charAt(1) + 1 + armeEnnemi[1].charAt(1) + 1) * 10000) / 7500);
+            var puissanceEnnemi = ((parseInt(armeEnnemi[1].charAt(1)) + 1) + (parseInt(armeEnnemi[0].charAt(1)) + 1));
             /*réinitialisation de la var armes*/
             armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
+            /*affiche des éléments*/
             document.getElementsByClassName('img_portrait_droit')[0].src= 'heros/'+herosEnnemi[0]+'.png';
             document.getElementsByClassName('img_arme_0')[0].src= 'armes/'+armeEnnemi[0]+'.png';
             document.getElementsByClassName('img_arme1_droite')[0].src= 'armes/'+armeEnnemi[1]+'.png';
+            
+            document.getElementsByClassName('affich_heros_droit')[0].innerHTML = '<img class="cover"  src="herofull/'+herosEnnemi[0]+'.png"/>';
+            document.getElementsByClassName('armes_droit')[0].innerHTML += 'puisance des armes : '+puissanceEnnemi+'';
+            
             
 
         }
