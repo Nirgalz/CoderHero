@@ -23,6 +23,8 @@
         function selectH(a) {
             heroPlayer.push(heros[a]);
             heros.splice(a, 1);
+            document.getElementsByClassName('affichHero')[0].innerHTML = '<img src="heros/h'+a+'.png"/>';
+            document.getElementsByClassName('img_heros_gauche')[0].src = 'heros/h'+a+'.png';
             finSelect();
         }
 
@@ -31,6 +33,12 @@
             if (armeHero[0] == armeHero[1]) {
                 armeHero.splice(-0, 1);
             }
+            document.getElementsByClassName('gauche')[0].src= 'armes/'+armeHero[0]+'.png';
+            document.getElementsByClassName('droite')[0].src = 'armes/'+armeHero[1]+'.png';
+            document.getElementsByClassName('img_arme_gauche')[0].src= 'armes/'+armeHero[0]+'.png';
+            document.getElementsByClassName('img_arme_droit')[0].src= 'armes/'+armeHero[1]+'.png';
+            
+            
             finSelect();
         }
 
@@ -96,6 +104,10 @@
             scoreEnnemi = Math.floor(((armeEnnemi[0].charAt(1) + 1 + armeEnnemi[1].charAt(1) + 1) * 10000) / 7500);
             /*réinitialisation de la var armes*/
             armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
+            document.getElementsByClassName('img_portrait_droit')[0].src= 'heros/'+herosEnnemi[0]+'.png';
+            document.getElementsByClassName('img_arme_0')[0].src= 'armes/'+armeEnnemi[0]+'.png';
+            document.getElementsByClassName('img_arme1_droite')[0].src= 'armes/'+armeEnnemi[1]+'.png';
+            
 
         }
 
