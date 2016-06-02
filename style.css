@@ -25,8 +25,8 @@ html {
 }
 
 .hero  img {
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 
 	border-radius: 50%;
 }
@@ -34,14 +34,14 @@ html {
 
 	position: absolute;
 	right: 0;
-	width: 120px;
+	width: 200px;
 }
 
 
 
 .armes img {
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	border-radius: 50px;
 }
 

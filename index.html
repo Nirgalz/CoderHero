@@ -15,43 +15,45 @@
 <body>
    <div id="ecran1">
     <div class="hero">
+     <h1>CHOOSE YOUR HERO</h1>
       <div class="h0" onclick="selectH(0)">
-        <img class="img_hero0" src="saitama-icone.png">
+        <img class="img_hero0" src="heros/h0.png">
       </div>
       <div class="h1" onclick="selectH(1)">
-        <img class="img_hero1" src="saitama-icone.png">
+        <img class="img_hero1" src="heros/h1.png">
       </div>
       <div class="h2" onclick="selectH(2)">
-        <img class="img_hero2" src="saitama-icone.png">
+        <img class="img_hero2" src="heros/h2.png">
       </div>
       <div class="h3" onclick="selectH(3)">
-        <img class="img_hero3" src="saitama-icone.png">
+        <img class="img_hero3" src="heros/h3.png">
       </div>
       <div class="h4" onclick="selectH(4)">
-        <img class="img_hero4" src="saitama-icone.png">
+        <img class="img_hero4" src="heros/h4.png">
       </div>
     </div>
     <div class="armes">
+     <h1>CHOOSE TWO WEAPONS</h1>
       <div class="a0" onclick="selectA(0)">
-        <img class="img_arme0" src="triforce-icone.png">
+        <img class="img_arme0" src="armes/a0.png">
       </div>
       <div class="a1" onclick="selectA(1)">
-        <img class="img_arme1" src="triforce-icone.png">
+        <img class="img_arme1" src="armes/a1.png">
       </div>
       <div class="a2" onclick="selectA(2)">
-        <img class="img_arme2" src="triforce-icone.png">
+        <img class="img_arme2" src="armes/a2.png">
       </div>
       <div class="a3" onclick="selectA(3)">
-        <img class="img_arme3" src="triforce-icone.png">
+        <img class="img_arme3" src="armes/a3.png">
       </div>
       <div class="a4" onclick="selectA(4)">
-        <img class="img_arme4" src="triforce-icone.png">
+        <img class="img_arme4" src="armes/a4.png">
       </div>
       <div class="a5" onclick="selectA(5)">
-        <img class="img_arme5" src="triforce-icone.png">
+        <img class="img_arme5" src="armes/a5.png">
       </div>
       <div class="a6" onclick="selectA(6)">
-        <img class="img_arme6" src="triforce-icone.png">
+        <img class="img_arme6" src="armes/a6.png">
       </div>
     </div>
     <div class="affichHero">
@@ -109,194 +111,26 @@
       <img class="cover" src="saitama_perso.png">
     </div>
     <div class="boutons_bas">
-      <div class="bouton_0">
-        <p>1</p>
+      <div class="bouton_0" >
+        <p id="1" onclick="combat(1)">REFLECHIR</p>
       </div>
-      <div class="bouton_1">
-        <p>2</p>
+      <div class="bouton_1" >
+        <p id="2" onclick="combat(2)">CODER</p>
       </div>
-      <div class="bouton_2">
-        <p>3</p>
+      <div class="bouton_2" >
+        <p id="3" onclick="combat(3)">MANGER</p>
       </div>
-      <div class="bouton_3">
-        <p>4</p>
+      <div class="bouton_3" >
+        <p id="4" onclick="combat(4)">DORMIR</p>
       </div>
     </div>
+    <div id="message"></div>
   </div>
-    <div>
-        <!--bouton test combat-->
-        <button class="action" id="1" onclick="combat(1)">reflechir</button>
-        <button class="action" id="2" onclick="combat(2)">coder</button>
-        <button class="action" id="3" onclick="combat(3)">manger</button>
-        <button class="action" id="4" onclick="combat(4)">dormir</button>
-
-    </div>
-    <div>
-        <button onclick="selectH(0)">H1</button>
-        <button onclick="selectH(1)">H2</button>
-        <button onclick="selectH(2)">H3</button>
-        <button onclick="selectH(3)">H4</button>
-        <button onclick="selectH(4)">H5</button>
-    </div>
-
-    <div>
-        <button onclick="selectA(0)">A1</button>
-        <button onclick="selectA(1)">A2</button>
-        <button onclick="selectA(2)">A3</button>
-        <button onclick="selectA(3)">A4</button>
-        <button onclick="selectA(4)">A5</button>
-        <button onclick="selectA(5)">A6</button>
-        <button onclick="selectA(6)">A7</button>
-    </div>
-    <button onclick="ennemyGenerator()">ennemygen</button>
-    <button id="bouttonStart" onclick="start()">start</button>
-    <p id="message"></p>
     
-    <script>
-        /*déclaration de variables*/
-        var scoreHeros = 0;
-        var scoreEnnemi = 0;
-        var armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
-        var heros = ["h0", "h1", "h2", "h3", "h4"];
-        var lieux = ["l0", "l1", "l2", "l3"];
-        var win = [1, 2, 3, 2, 4, 1, 2, 3, 2, 4, 1, 2, 3, 2, 4];
-        var heroPlayer = [];
-        var fight = [];
-        /*tableau en cache (à vider à la fin du combat*/
-        var armeHero = [];
-        var armeEnnemi = [];
-        var herosEnnemi = [];
-        var nombreClicks = 0;
-        /*vars timer*/
-        var startS = 0;
-        var startM = 0;
-        var stopS = 0;
-        var stopM = 0;
-        var stopMin = 0;
-
-
-        function selectH(a) {
-            heroPlayer.push(heros[a]);
-            heros.splice(a, 1);
-            finSelect();
-        }
-
-        function selectA(a) {
-            armeHero.push(armes[a]);
-            if (armeHero[0] == armeHero[1]) {
-                armeHero.splice(-0, 1);
-            }
-            finSelect();
-        }
-
-        function finSelect() {
-            if (armeHero.length == 2 && heroPlayer.length == 1) {
-                console.log('caca');
-                document.getElementById('bouttonStart').style.opacity = 1;
-            }
-        }
-
-        function start() {
-            var d = new Date();
-            startS = d.getSeconds();
-            startM = d.getMilliseconds();
-            startMin = d.getMinutes();
-            ennemyGenerator();
-        }
-
-        function stop() {
-            var d = new Date();
-            stopS = d.getSeconds();
-            stopM = d.getMilliseconds();
-            stopMin = d.getMinutes();
-            var timeS = stopS - startS;
-            var timeM = stopM - startM;
-            var timeMin = stopMin - startMin;
-            var time = (timeMin * 60000) + (timeS * 1000) + timeM;
-            return time;
-        }
-
-        function combat(a) {
-            document.getElementById(a).style.backgroundColor="gray";
-            if (a == win[nombreClicks]) {
-                fight.push(a);
-                nombreClicks++;
-                if (nombreClicks == 15) {
-                    /*stop() affiche le temps */
-                    stop();
-                    scoreHeros = Math.floor((((armeHero[1].charAt(1) + 1) + (armeHero[0].charAt(1) + 1) * 10000) / stop()));
-                    console.log(stop());
-                    /*si gagné ou perdu*/
-                    if (scoreHeros >= scoreEnnemi) {
-                        winner();
-                    } else {
-                        loser();
-                    }
-                }
-            } else {
-                document.getElementById(win[nombreClicks]).style.backgroundColor="green";
-
-            }
-        }
-
-
-        function ennemyGenerator() {
-            /*random du héros*/
-            var herosIndex = Math.floor((Math.random() * heros.length));
-            herosEnnemi.push(heros[herosIndex]);
-            heros.splice(herosIndex, 1);
-
-            /*appel de la fonction random des armes*/
-            randomArmes();
-            randomArmes();
-            scoreEnnemi = Math.floor(((armeEnnemi[0].charAt(1) + 1 + armeEnnemi[1].charAt(1) + 1) * 10000) / 7500);
-            /*réinitialisation de la var armes*/
-            armes = ["a0", "a1", "a2", "a3", "a4", "a5", "a6"];
-
-        }
-
-
-        /*function random des armes ennemi*/
-        function randomArmes() {
-            var armeIndex = Math.floor((Math.random() * armes.length));
-            armeEnnemi.push(armes[armeIndex]);
-            armes.splice(armeIndex, 1);
-        }
-
-
-        /* fonction victoir/defait*/
-        function winner() {
-            document.getElementById('message').innerHTML = 'Victoir avec ' + scoreHeros + ' contre ' + scoreEnnemi + ' Bien ouéj gros !';
-            scoreHeros = 0;
-            scoreEnnemi = 0;
-            fight = [];
-            armeEnnemi = [];
-            herosEnnemi = [];
-            nombreClicks = 0;
-            startS = 0;
-            startM = 0;
-            stopS = 0;
-            stopM = 0;
-            stopMin = 0;
-        }
-
-        function loser() {
-            document.getElementById('message').innerHTML = 'Défaite avec ' + scoreHeros + ' contre ' + scoreEnnemi + ' grosse merde!';
-            heros = ["h0", "h1", "h2", "h3", "h4"];
-            lieux = ["l0", "l1", "l2", "l3"];
-            scoreHeros = 0;
-            scoreEnnemi = 0;
-            fight = [];
-            armeEnnemi = [];
-            herosEnnemi = [];
-            nombreClicks = 0;
-            startS = 0;
-            startM = 0;
-            stopS = 0;
-            stopM = 0;
-            stopMin = 0;
-            armeHero = [];
-        }
+    
+    
+    <script src="script.js">
+       
     </script>
 
 
