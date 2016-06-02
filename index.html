@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Untitled Document</title>
+    <link type="text/css" href="style.css" rel="stylesheet">
     <style type="text/css">
         #bouttonStart {
             opacity: 0;
@@ -12,6 +13,116 @@
 </head>
 
 <body>
+   <div id="ecran1">
+    <div class="hero">
+      <div class="h0" onclick="selectH(0)">
+        <img class="img_hero0" src="saitama-icone.png">
+      </div>
+      <div class="h1" onclick="selectH(1)">
+        <img class="img_hero1" src="saitama-icone.png">
+      </div>
+      <div class="h2" onclick="selectH(2)">
+        <img class="img_hero2" src="saitama-icone.png">
+      </div>
+      <div class="h3" onclick="selectH(3)">
+        <img class="img_hero3" src="saitama-icone.png">
+      </div>
+      <div class="h4" onclick="selectH(4)">
+        <img class="img_hero4" src="saitama-icone.png">
+      </div>
+    </div>
+    <div class="armes">
+      <div class="a0" onclick="selectA(0)">
+        <img class="img_arme0" src="triforce-icone.png">
+      </div>
+      <div class="a1" onclick="selectA(1)">
+        <img class="img_arme1" src="triforce-icone.png">
+      </div>
+      <div class="a2" onclick="selectA(2)">
+        <img class="img_arme2" src="triforce-icone.png">
+      </div>
+      <div class="a3" onclick="selectA(3)">
+        <img class="img_arme3" src="triforce-icone.png">
+      </div>
+      <div class="a4" onclick="selectA(4)">
+        <img class="img_arme4" src="triforce-icone.png">
+      </div>
+      <div class="a5" onclick="selectA(5)">
+        <img class="img_arme5" src="triforce-icone.png">
+      </div>
+      <div class="a6" onclick="selectA(6)">
+        <img class="img_arme6" src="triforce-icone.png">
+      </div>
+    </div>
+    <div class="affichHero">
+      <img src="saitama_perso.png">
+    </div>
+    <div class="affichReste">
+      <div class="affichArme0">
+        <img class="gauche" src="triforce-icone.png">
+      </div>
+      <div class="affichIcone">
+        <p class="icone_plus">+</p>
+      </div>
+      <div class="affichArme1">
+        <img class="droite" src="triforce-icone.png">
+      </div>
+      <div class="affichResult"> </div>
+      <button id="bouttonStart" onclick="start()">start</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div id="ecran2">
+    <div id="testg">
+      <div class="portrait_gauche">
+        <img class="img_heros_gauche" src="saitama_perso.png">
+      </div>
+      <div class="armes_gauche">
+        <div id="a0_g">
+          <img class="img_arme_gauche" src="triforce-icone.png">
+        </div>
+        <div class="a1_g">
+          <img class="img_arme_droit" src="triforce-icone.png">
+        </div>
+      </div>
+      <div class="puissance_gauche"> </div>
+    </div>
+    <div id="testd">
+      <div class="portrait_droit">
+        <img class="img_portrait_droit" src="saitama_perso.png">
+      </div>
+      <div class="armes_droit">
+        <div id="a0_d">
+          <img class="img_arme_0" src="triforce-icone.png">
+        </div>
+        <div class="a1_d">
+          <img class="img_arme1_droite" src="triforce-icone.png">
+        </div>
+      </div>
+      <div class="puissance_droit"> </div>
+    </div>
+    <div class="affich_heros_gauche">
+      <img class="cover" src="saitama_perso.png">
+    </div>
+    <div class="affich_heros_droit">
+      <img class="cover" src="saitama_perso.png">
+    </div>
+    <div class="boutons_bas">
+      <div class="bouton_0">
+        <p>1</p>
+      </div>
+      <div class="bouton_1">
+        <p>2</p>
+      </div>
+      <div class="bouton_2">
+        <p>3</p>
+      </div>
+      <div class="bouton_3">
+        <p>4</p>
+      </div>
+    </div>
+  </div>
     <div>
         <!--bouton test combat-->
         <button class="action" id="1" onclick="combat(1)">reflechir</button>
