@@ -20,13 +20,13 @@ html {
 
 .hero {
 	position: absolute;
-	top: 0;
+	top: 10%;
 
 }
 
 .hero  img {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 
 	border-radius: 50%;
 }
@@ -35,13 +35,14 @@ html {
 	position: absolute;
 	right: 0;
 	width: 200px;
+  top: 10%;
 }
 
 
 
 .armes img {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50px;
 }
 
@@ -225,10 +226,10 @@ background-color: transparent;
 }
 .boutons_bas {
   position: absolute;
-  left: 35%;
+  left: 30%;
   bottom: 3%;
   background-color: transparent;
-  width: 270px;
+  width: 400px;
   height: 80px;
 }
 p {
@@ -303,4 +304,59 @@ p {
   background-color: transparent;
   width: 100px;
   height: 100px;
+}
+
+.bouton-reflechir-rond {
+  height: 80px;
+  width: 80px;
+  border-radius: 50em;
+  background-image: url(bouton-reflechir-rond.png);
+  background-size: 120px 124px;
+  background-position: center;
+}
+
+.bouton-coder-rond {
+  height: 80px;
+  width: 80px;
+  border-radius: 50em;
+  background-image: url(bouton-coder-rond.png);
+  background-size: 120px 124px;
+  background-position: center;
+}
+
+.bouton-manger-rond {
+  height: 80px;
+  width: 80px;
+  border-radius: 50em;
+  background-image: url(bouton-manger-rond.png);
+  background-size: 120px 124px;
+  background-position: center;
+}
+
+.bouton-dormir-rond {
+  height: 80px;
+  width: 80px;
+  border-radius: 50em;
+  background-image: url(bouton-dormir-rond.png);
+  background-size: 120px 124px;
+  background-position: center;
+}
+
+#choisir_arme {
+
+position: absolute;
+right: 0;
+}
+
+
+#choisir_heros {
+  position: absolute;
+  top: 0;
+
+
+}
+
+h1 {
+  font-size: 25px;
+  color: red;
 }

@@ -14,8 +14,11 @@
 
 <body>
    <div id="ecran1">
+   <div id="choisir_heros">
+   <h1>CHOOSE YOUR HERO</h1>
+   </div>
     <div class="hero">
-     <h1>CHOOSE YOUR HERO</h1>
+     
       <div class="h0" onclick="selectH(0)">
         <img class="img_hero0" src="heros/h0.png">
       </div>
@@ -32,8 +35,11 @@
         <img class="img_hero4" src="heros/h4.png">
       </div>
     </div>
+    <div id="choisir_arme">
+    <h1>CHOOSE TWO WEAPONS</h1>
+    </div>
     <div class="armes">
-     <h1>CHOOSE TWO WEAPONS</h1>
+     
       <div class="a0" onclick="selectA(0)">
         <img class="img_arme0" src="armes/a0.png">
       </div>
@@ -112,16 +118,16 @@
     </div>
     <div class="boutons_bas">
       <div class="bouton_0" >
-        <p id="1" onclick="combat(1)">REFLECHIR</p>
+        <input class="bouton-reflechir-rond" onclick="combat(1)">
       </div>
       <div class="bouton_1" >
-        <p id="2" onclick="combat(2)">CODER</p>
+        <input class="bouton-coder-rond" onclick="combat(2)">
       </div>
       <div class="bouton_2" >
-        <p id="3" onclick="combat(3)">MANGER</p>
+        <input class="bouton-manger-rond" onclick="combat(3)">
       </div>
       <div class="bouton_3" >
-        <p id="4" onclick="combat(4)">DORMIR</p>
+        <input class="bouton-dormir-rond" onclick="combat(4)">
       </div>
     </div>
     <div id="message"></div>
